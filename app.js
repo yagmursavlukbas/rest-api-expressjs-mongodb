@@ -6,8 +6,8 @@ const helmet = require('helmet');
 const cors = require('cors');
 const express = require('express');
 const httpLogger = require('./src/common/loggers/httpLogger');
-const { returnError } = require('./src/common/middlewares/error.handler')
-const AppError = require('./src/common/errors/error')
+const { returnError } = require('./src/common/middlewares/error.handler');
+const AppError = require('./src/common/errors/error');
 const databaseHelper = require('./src/common/helpers/database');
 
 class App {
@@ -20,7 +20,7 @@ class App {
   }
 
   database() {
-    if(process.env.NODE_ENV !== 'test') {
+    if (process.env.NODE_ENV !== 'test') {
       databaseHelper.connect();
     }
   }

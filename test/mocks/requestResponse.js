@@ -23,7 +23,7 @@ const mockResponse = () => {
 };
 
 const mockNext = () => {
-    const next = jest.fn();
-    return next;
+  const next = jest.fn();
+  return next;
 };
 module.exports = { mockRequest, mockResponse, mockNext };

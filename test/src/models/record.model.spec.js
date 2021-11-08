@@ -2,25 +2,25 @@ const mockingoose = require('mockingoose');
 const Records = require('../../../src/models/record.model');
 const records = [];
 constructAggregationParam = (filter) => {
-    [
-        {
-          $project: {
-            _id: false,
-            key: true,
-            createdAt: true,
-            totalCount: { $sum: '$counts' },
-          },
+  [
+    {
+      $project: {
+        _id: false,
+        key: true,
+        createdAt: true,
+        totalCount: { $sum: '$counts' },
+      },
+    },
+    {
+      $match: {
+        totalCount: { $gte: filter.minCount, $lte: filter.maxCount },
+        createdAt: {
+          $gte: new Date(filter.startDate),
+          $lte: new Date(filter.endDate),
         },
-        {
-          $match: {
-            totalCount: { $gte: filter.minCount, $lte: filter.maxCount },
-            createdAt: {
-              $gte: new Date(filter.startDate),
-              $lte: new Date(filter.endDate),
-            },
-          },
-        },
-      ]
+      },
+    },
+  ];
 };
 describe('record model', () => {
   const filterObj = {
@@ -35,7 +35,9 @@ describe('record model', () => {
   });
   it('should return records aggregated', async () => {
     mockingoose(Records).toReturn(records, 'aggregate');
-    const results = await Records.aggregate(constructAggregationParam(filterObj));
+    const results = await Records.aggregate(
+      constructAggregationParam(filterObj)
+    );
     expect(results).toBeDefined();
   });
 });

@@ -5,7 +5,7 @@ const { logger } = require('./logger');
 morgan.token('message', (req, res) => res.locals.errorMessage || '');
 
 const format = json({
-  consumer: ":remote-addr",
+  consumer: ':remote-addr',
   method: ':method',
   url: ':url',
   status: ':status',

@@ -8,9 +8,11 @@ const { logger } = require('./src/common/loggers/logger');
 dotenv.config();
 const app = require('./app');
 
-app.set('port', (process.env.PORT || 5000));
-const server = app.listen(port, () => {
-  logger.info(`App running on port ${port}...`);
+// workaround for heroku
+app.set('port', process.env.PORT || 5000);
+
+const server = app.listen(app.get('port'), () => {
+  logger.info(`App running on port ${app.get('port')}...`);
 });
 // global exceptions handling
 process.on('uncaughtException', (err) => {

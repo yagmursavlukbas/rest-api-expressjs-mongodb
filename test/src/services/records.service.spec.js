@@ -23,7 +23,7 @@ describe('records service', () => {
     const message = 'The filter is invalid!';
     mockingoose(Records).toReturn(new Error(message), 'aggregate');
     expect(() => {
-        RecordsService.fetchAll(reqPayload).toThrow(new AppError(500, message));
-      });
+      RecordsService.fetchAll(reqPayload).toThrow(new AppError(500, message));
+    });
   });
 });
