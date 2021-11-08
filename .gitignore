@@ -1,0 +1,13 @@
+.DS_Store
+/test/.DS_Store
+/test/src/.DS_Store
+
+# compiled output
+/node_modules
+*.launch
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
