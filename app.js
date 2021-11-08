@@ -47,7 +47,8 @@ class App {
 
   routes() {
     // ROUTES
-    this.express.use('/api/v1', router);
+    // changed from /api/v1 to ease testing in prod
+    this.express.use('/', router);
     // default routing for undefined resources
     this.express.all('*', (req, res, next) => {
       res.contentType('application/json');
