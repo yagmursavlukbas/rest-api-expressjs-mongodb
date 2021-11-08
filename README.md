@@ -20,4 +20,4 @@ Please see below to configure service using environment variables.
                      
 `NODE_ENV` : set to "development" to run on development mode
 
-`PORT` : set to port number that you'd like to run the app through.
+`PORT` : set to port number that you'd like to run the app through, defaulted to 5000.
