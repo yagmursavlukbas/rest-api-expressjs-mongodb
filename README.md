@@ -7,9 +7,19 @@ API written in ExpressJS that filters the data in existing mongodb instance.
 * `POST /api/v1/records`
 * Input Validation
 * Error Handling
+## 1. Clone the repo and install dependencies
+````
+git clone <repo-url>
+npm i
+````
+## 2. Modify the .env file
+Set environment variables as described in environment variables section.
+## 3. Start the server
+Run the following command at the root:
+`````
+npm start
+`````
 
-## To Run locally
-For running the service, run `npm install` on the root folder, and then start the service with `npm start`.
 
 
 ### Environment Variables
